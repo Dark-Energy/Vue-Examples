@@ -3,6 +3,7 @@ import Dynalinks from './dynalinks.js'
 import Application from './application.js'
 import Vue from 'vue'
 import * as dynalinks_vue  from './lib.js'
+import event_bus from './event_bus.js'
 
 var mr;
 export default function Vue_Application(data)
@@ -16,11 +17,10 @@ Vue_Application.prototype = Object.create( Application.prototype );
 Vue_Application.prototype.constructor = Vue_Application;
 
 
-var event_bus;
+
 
 Vue_Application.prototype.initialize = function ()
 {
-	event_bus = new Vue();
 	
 	this.main_menu = dynalinks_vue.create_main_menu(this);
 	this.vue = dynalinks_vue.create_vue_app(this);
@@ -118,20 +118,35 @@ Vue_Application.prototype.add_record_to_category = function (category)
 Vue_Application.prototype.update_record = function (category, id)
 {
 	var self = this;
-	var cat = self.dynalinks.categories[category];
-	if (!cat) {
+	var context = self.dynalinks.categories[category];
+	if (!context) {
 		console.log("Error update record!");
 		return;
 	}
-	var record = cat.hash[id];
+	var record = context.hash[id];
 	if (!record) {
 		console.log("Error update record!");
 		return;
 	}
-	self.vue.show_update_form(record, category, function (value ) {
+    //fucking 2 way data bindings
+    //we need create copy of record that is given to user for editing
+    //if user approve editing, then we need update record in database
+    //if user reject editing, then we do nothing
+    var tag = record.tag;
+    var old_favorite = record.favorite;
+    var item = create_clone_object(record);    
+	self.vue.show_update_form(item, category, function (value ) {
+        //context.check_favorite(record, old_favorite);
+        self.dynalinks.update_item(record, item);
 		mr.navigate(self.dynalinks.create_url(category, value.tag), true);			
-	});
-}
+	}, 
+    //cancel
+    function () {			
+        mr.navigate(self.dynalinks.create_url(category, tag), true);
+    }
+    );
+} 
+
 
 Vue_Application.prototype.init_router = function ()
 {

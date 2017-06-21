@@ -28,6 +28,21 @@ Dynalinks.Utils.check_database = function (data)
 	}
 }
 
+Dynalinks.Utils.create_features_first = function (dynalinks)
+{
+    var features = {};
+    every_property(dynalinks.categories, function (key) {
+        var favs = dynalinks.categories[key].favorites;
+        if (favs.length > 0) {
+            features[key] = [];
+            every_index(favs, function (i) {
+                features[key].push({"_id": favs[i]._id, "text": favs[i].favorite_text});
+            });
+        }
+    });
+    return features;
+}
+
 /*
 names = dictionary of {hash: name}
 categories = dictionary of {hash: Context}
@@ -38,9 +53,15 @@ function Dynalinks(data, lazy_parse)
 	this.database = data.database;
 	//Dynalinks.Utils.check_database(data.database);
 	this.names = data.names;
+    this.features = data.features;
 	this.categories = {};
 	if (!lazy_parse) {
 		this.parse_database();	
+        //this.features = Dynalinks.Utils.create_features_first(this)
+        //console.log(tmp);
+        //var f = new Dynalinks.Features(tmp);
+        //f.remove_feature('r318iuhsv1471073372661');
+        //console.log(f);        
 	}
 }
 
@@ -49,6 +70,50 @@ Dynalinks.prototype.create_url = function(category, tag)
 	var a = Array.prototype.slice.call(arguments, 0);
 	a.unshift("view");
 	return create_url.apply(this, a);
+}
+
+/*
+features = dictionary of Array of Record
+{
+    '_id': record._id
+    'text': text for features or record.text
+}
+*/
+Dynalinks.Features = function (features)
+{
+    this.features = features;
+    this.build_hash();
+}
+
+Dynalinks.Features.prototype.build_hash = function ()
+{
+    this.hash = {};
+    var self = this;
+    every_property(this.features, function (key) {
+        var records = self.features[key];
+        every_index(records, function (index) {
+            var record = records[index];
+            self.hash[record._id] = key;
+        });
+   });
+}
+
+Dynalinks.Features.prototype.remove_feature = function (id)
+{
+    var category = this.hash[id];
+    if (category) {
+        remove_by_field_value(this.features[category], '_id', id);
+    }
+    delete this.hash[id];
+}
+
+Dynalinks.Features.prototype.add_feature = function (id, category, text)
+{
+    this.hash[id] = category;
+    if (!this.features[category]) {
+        this.features[category] = [];
+    }
+    this.features[category].push( {'_id':_id, 'text':text});
 }
 
 Dynalinks.prototype.Database_Name = "database.txt";
@@ -110,6 +175,24 @@ Dynalinks.Context.prototype.move_item = function (item, new_tag)
 }
 
 
+//new function for this shit
+Dynalinks.Context.prototype.check_favorite = function (item, favorite)
+{
+    //if (!!item.favorite !== !!favorite)
+    {
+        var index = find_index_by_field_value(this.favorites, '_id', item._id);
+        if (index < 0) {
+            if (item.favorite) {
+                this.favorites.push(item);
+            }
+        } else {
+           if (!!!item.favorite) {
+                this.favorites.splice(index, 1);
+           }
+        }
+    }
+}
+
 Dynalinks.Context.prototype.change_favorite = function(item, favorite, favorite_text)
 {
 	if (item.favorite === favorite && item.favorite_text === favorite_text) {
@@ -155,14 +238,14 @@ Dynalinks.Context.prototype.change_favorite = function(item, favorite, favorite_
 		list_unchange = false;
 	}
 
+    /*
 	if (item.favorite && item.favorite_text !== new_favorite_text) 	{
 		item.favorite_text = new_favorite_text;
 		if (list_unchange) {
 			hack(this.favorites, item);
 		}
 	}
-	
-	this.favorites.valueHasMutated();
+*/
 }
 
 
@@ -424,7 +507,11 @@ Dynalinks.prototype.save_data_to_file = function(filename, data, varname)
 
 Dynalinks.prototype.save_to_file = function (filename, varname)
 {
-	var db = {database: this.database, names: this.names};
+	var db = {
+        'database': this.database, 
+        'names': this.names,
+        'features': this.features,
+    };
 	this.save_data_to_file(filename || this.Database_Name, db, this.Database_Var);
 }
 
@@ -443,20 +530,31 @@ Dynalinks.prototype.update_item = function(old, new_value)
 	//this very shit
 	//if (old.favorite !== new_value.favorite) 
 	{
-		this.context.change_favorite(old, new_value.favorite, new_value.favorite_text);
+        //first change favorite_text
+        old.favorite = !!new_value.favorite; 
+        old.favorite_text = new_value.favorite_text;
+        if (old.favorite && !old.favorite_text) {
+            old.favorite_text = new_value.text;
+        }
+        //then change favorites list
+        this.context.check_favorite(old);        
+		//this.context.change_favorite(old, new_value.favorite, new_value.favorite_text);
 	}
+    
+	//check tag changes
+	if (old.tag !== new_value.tag || new_value.new_tag) {
+		this.context.move_item(old, new_value.new_tag || new_value.tag);
+	}
+    
+    
 	for(var key in new_value) {
 		if (Object.prototype.hasOwnProperty.call(old, key) &&
-			key !== 'new_tag' && key !== 'tag' && key !== "favorite_text" && key !== "favorite")
+			key !== 'new_tag' && key !== 'tag' )
 		{
 			old[key] = new_value[key];
 		}
 	}
 	
-	//check tag changes
-	if (old.tag !== new_value.tag || new_value.new_tag) {
-		this.context.move_item(old, new_value.new_tag || new_value.tag);
-	}
 	return {"category": this.context.category_name, "tag": old.tag};
 	
 }

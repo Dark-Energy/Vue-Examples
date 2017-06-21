@@ -7,7 +7,33 @@ Vue.component('page-item',
 	
 Vue.component('page-content-grid', {
 		props: ['page_content'],
-		template: '<div class="tab-content" id="page-content"> <page-item v-for="item in page_content.data" v-bind:link_item="item" v-bind:key="item._id"> </page-item> </div>'
+		template: '<div class="tab-content" id="page-content">\
+	<div class="control-panel">\
+		<a href="javascript:void(0);" class="edit-button link-button" v-on:click="turn_edit">Правка</button>\
+	</div>\
+    <div class="data-grid">\
+	<div class="editable-link" v-for="item in page_content.data">\
+		<div class="button-panel" v-if="edit_mode">\
+			<a class="edit-btn" v-bind:href="\'#update/\'+page_content.category + \'/\'+item._id" v-bind:key="item._id">	Правка	</a>\
+			<button type="button" class="delete-btn"  v-on:click="delete_record(item._id)" v-bind:key="item._id"> Удалить </button>\
+		</div>\
+		<a v-bind:href="item.href" v-bind:key="item._id"> {{item.text}}</a>\
+	</div>\
+    </div>\
+</div>',
+	data: function () {
+		return {"edit_mode": false}
+	},
+
+	methods: {
+		turn_edit: function (event) {
+			this.edit_mode = !this.edit_mode;
+		},
+			delete_record: function (event) {
+				event_bus.$emit("delete-record", event);
+			}
+     },
+
 	});
 
 
@@ -74,7 +100,6 @@ Vue.component('page-table-view', {
 	});
 
 
-//					<td> <dynamic-link v-bind:fragments="[item.category,item.item.tag, item.item.href]" v-bind:base_url="#view/"></dynamic-link> </td>\
 
 
 Vue.component('error-message', {
@@ -85,28 +110,6 @@ Vue.component('error-message', {
 
 var event_bus = new Vue();
 	
-Vue.component('grid-edit', {
-		props: ['page_content'],
-		data: function () {
-			return {};
-		},
-		methods: {
-			delete_record: function (event) {
-				console.log(event);
-				event_bus.$emit("delete-record", event);
-			}
-		},
-		template: '<div class="tab-content" id="page-content"><div class="editable-link" v-for="item in page_content.data">\
-			<div class="button-panel">\
-				<a class="edit-btn" v-bind:href=\"\'#update/\'+page_content.category + \'/\'+item._id\" v-bind:key="item._id">Правка</a>\
-				<button class="delete-btn" v-on:click="delete_record(item._id)" v-bind:key="item._id">Удалить</button>\
-				<br>\
-			</div>\
-			<page-item v-bind:link_item="item" v-bind:key="item._id"> </page-item>\
-		</div></div>',
-
-		
-	});
 
 
 	
@@ -139,6 +142,23 @@ Vue.component('category-menu',
 		<routed-link v-for="item in category_list" v-bind:url="item" v-bind:base_url="base_url"> </routed-link>\
 		</div>'
 	});
+    
+Vue.component('dropdown-category-menu',
+	{
+		props: ['category_list', 'base_url', 'categories'],
+		template: '<div class="line-menu">\
+        <ul class="top-line top-buttons">\
+        <li v-for="item in category_list">\
+            <routed-link  v-bind:url="item" v-bind:base_url="base_url"> </routed-link>\
+            <ul v-if="categories[item.href]" class="submenu">\
+                <li v-for="link in categories[item.href].favorites">\
+                    <a :href="link.href">{{link.favorite_text || link.text}}</a>\
+                </li>\
+            </ul>\
+        </li>\
+		</ul></div>'
+	});
+    
 
 Vue.component('features-line', {
 	props:["features"],
@@ -183,12 +203,30 @@ Vue.component('form-update', {
 				}
 			}
 		},
+        is_favorite: function () 
+        {
+            //console.log("comp", !!this.page_content.item.favorite);
+            return !!this.page_content.item.favorite;
+        },
+        change_favorite: function () 
+        {
+            this.my_features = this.page_content.item.favorite = !!!this.page_content.item.favorite;        
+            if (this.my_features && !this.page_content.item.favorite_text) {
+                this.page_content.item.favorite_text = this.page_content.item.text;
+            }
+        }
 	},
-	
+
+    activated: function () {
+        this.my_features = this.is_favorite();
+    },
+    
 	data: function () {
 		var data = {};
 		data.message = '';
 		data.new_tag = undefined;
+        data.my_features = false;
+        data.page_content = {};
 		return data;
 	},
 		template:
@@ -202,8 +240,8 @@ Vue.component('form-update', {
 	или создайте новый <input type="text" v-model="new_tag">\
 	</div>\
 	<div class="other-fields fields">\
-	<p>Избранное <input type="checkbox" v-model="page_content.item.favorite" >\
-	Текст для избранного <input v-model="page_content.item.favorite_text" v-bind:disabled="!page_content.item.favorite">\
+	<p>Избранное <button type="button" v-on:click="change_favorite">{{is_favorite()?"Remove":"Add"}}</button>\
+	Текст для избранного <input v-model="page_content.item.favorite_text" v-bind:disabled="!my_features">\
 	</div>\
 	<button class="save-button" type="button" v-on:click="save" id="update-form-save-button">Save</button>\
 	<button class="cancel-button" type="button" v-on:click="cancel">Отмена</button>\
@@ -227,12 +265,6 @@ function create_vue_app(dynalinks)
 	var app = new Vue({
 		el: '#app',
 		data: {
-			//"current_category": current_category,		
-			//"category_url": "view/" + current_category_name,			
-			//"tags": current_category.tags,			
-			//"pages": current_category.pages,
-			//"current_page": current_category.pages[get_first_key(current_category.pages)],
-			//"current_category_name" : current_category_name,			
 			"current_category": {},
 			"category_url": "",
 			"tags": {},
@@ -264,14 +296,15 @@ function create_vue_app(dynalinks)
 					this.page_content_view = this.main_page_view;
 				}
 			},
-			"show_update_form": function (item, category, callback) 
+			"show_update_form": function (item, category, callback, cancel) 
 			{
 				this.show_category(category);
 				this.page_content_view = "form-update";
 				this.page_content = {
 					item: item,
 					callback: callback,
-					tags: this.tags
+					tags: this.tags,
+                    cancel_callback: cancel,
 				};
 			},
 			"check_error": function () 

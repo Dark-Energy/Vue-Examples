@@ -5,8 +5,8 @@
 	</div>
 	<div class="editable-link" v-for="item in page_content.data">
 		<div class="button-panel" v-if="edit_mode">	
-			<a class="edit-btn" v-bind:href="'#update/'+page_content.category + '/'+item._id" v-bind:key="item._id">	Правка	</a>
-			<button class="delete-btn" v-on:click="delete_record(item._id)" v-bind:key="item._id"> 			Удалить 	</button>
+			<a class="edit-btn" v-bind:href="'#update/'+page_content.category + '/'+item._id" v-bind:key="item._id"> Правка </a>
+			<button class="delete-btn" v-on:click="delete_record(item._id)" v-bind:key="item._id"> Удалить </button>
 		</div>
 		<a v-bind:href="item.href" v-bind:key="item._id"> {{item.text}}</a>
 	</div>
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+
+import event_bus from '../event_bus.js'
 
 export default {
 	props: ['page_content'],

@@ -24,11 +24,11 @@
 		</p>
 	</div>
 	<div class="other-fields fields">
-		<p>
-			Избранное 
-			<input type="checkbox" v-model="page_content.item.favorite" >
-			Текст для избранного 
-			<input v-model="page_content.item.favorite_text" v-bind:disabled="!page_content.item.favorite">
+        <p>
+		Избранное 
+	<p>Избранное <button type="button" v-on:click="change_favorite">{{is_favorite()?"Убрать":"Добавить"}}</button>
+	Текст для избранного <input v-model="page_content.item.favorite_text" v-bind:disabled="!my_features">
+        
 		</p>
 	</div>
 	<button class="save-button" type="button" v-on:click="save" id="update-form-save-button">Save</button>
@@ -40,13 +40,17 @@
 <script>
 	export default {
 	name: 'form-update', 
-	props: ["page_content"],
+	props: {
+        "page_content": {
+            default: {}
+        }
+    },
 	methods: {
 		cancel: function () {
 			if (this.page_content.cancel_callback) {
 				this.page_content.cancel_callback();
 			} else {
-				console.log("Error cancel add new record! Not given cancel callback!");
+				console.log("Error cancel update form! Not given cancel callback!");
 			}
 		},
 		save: function () {
@@ -63,12 +67,27 @@
 				}
 			}
 		},
+     
+        is_favorite: function () 
+        {
+            return !!this.page_content.item.favorite;
+        },
+        change_favorite: function () 
+        {
+            this.my_features = this.page_content.item.favorite = !!!this.page_content.item.favorite;        
+            if (this.my_features && !this.page_content.item.favorite_text) {
+                this.page_content.item.favorite_text = this.page_content.item.text;
+            }
+        }
+        
 	},
 	
 	data: function () {
 		var data = {};
 		data.message = '';
 		data.new_tag = undefined;
+        data.my_features = false;
+        
 		return data;
 	},
 	}

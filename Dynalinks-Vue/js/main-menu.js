@@ -18,7 +18,7 @@ var main_menu_template = '<div class="top-line top-buttons line-menu">\
 		<li><a href="javascript:void(0);" id="button-export-category" v-on:click="export_category"> категорию </a>	</li>\
 		</ul>\
 	</li>\
-	<li><a href="javascript:void(0);" id="button-edit-page" v-on:click="edit_mode">Правка</a></li>\
+	<!--li><a href="javascript:void(0);" id="button-edit-page" v-on:click="edit_mode">Правка</a></li-->\
 	<li><a href="javascript:void(0);" id="button-save" v-on:click="save_all"> Сохранить всё</a></li>\
 	<li><input type="text" id="search-box" v-model="search_text" placeholder="искать..."><button type="button" id="search-button" v-on:click="search_record">искать</button></li>\
 	</ul>\
@@ -68,10 +68,12 @@ var Application_Main_Menu = {
 		{
 			application.search(this.search_text);
 		},
+        /*
 		edit_mode: function ()
 		{
 			application.turn_edit_mode();
 		}
+        */
 	}
 };
 	

@@ -859,5 +859,55 @@ var my_links = {
   "job": "Работа",
   "rutracker": "Рутрекер",
   "English": "English"
+ },
+ "features": {
+  "job": [
+   {
+    "_id": "aa106b7t81471073372658",
+    "text": "fl.ru"
+   },
+   {
+    "_id": "0ll3e25301471073372658",
+    "text": "my github"
+   },
+   {
+    "_id": "3g2rdqcps1471073372659",
+    "text": "Mozilla"
+   },
+   {
+    "_id": "euvk1nlvr1471090034410",
+    "text": "Deep Learning Links"
+   }
+  ],
+  "English": [
+   {
+    "_id": "ozr5zqchs1471073372661",
+    "text": "envoc"
+   },
+   {
+    "_id": "37qbp3bg91471073372661",
+    "text": "engblog"
+   },
+   {
+    "_id": "044bn2hri1471073372661",
+    "text": "Cambrige Dictionary"
+   },
+   {
+    "_id": "qjr4kwd2u1471073372661",
+    "text": "Oxford Dictionary"
+   },
+   {
+    "_id": "bfr11yk0c1471073372661",
+    "text": "McMillian Dictionary"
+   },
+   {
+    "_id": "r318iuhsv1471073372661",
+    "text": "merriam webster"
+   },
+   {
+    "_id": "awt80jtk71471073372661",
+    "text": " The Free Dictionary"
+   }
+  ]
  }
 };

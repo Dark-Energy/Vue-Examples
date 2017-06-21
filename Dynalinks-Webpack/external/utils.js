@@ -1,12 +1,6 @@
-﻿/*
+/*
 Utils functions
 
-
-*/
-/*
-export default 
-{
-}
 */
 
 function get_first_key(obj)
@@ -64,6 +58,18 @@ function find_by_field_value(arr, field, value)
 		}
 	}
 	return null;
+}
+
+
+function find_index_by_field_value(arr, field, value)
+{
+	for(var i = 0; i < arr.length; i++)	{
+		var tg = arr[i][field];
+		if (value === tg){
+			return i;
+		}
+	}
+	return -1;
 }
 
 
@@ -135,7 +141,7 @@ function create_url()
 
 if (!String.prototype.trim) {
   (function() {
-    // remove BOM and white
+    // remove BOM and spaces
     String.prototype.trim = function() {
       return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
     };
@@ -170,31 +176,29 @@ function clone_fields(src, fields)
 	return obj;
 }
 
-var my_utils = 
-{
-	get_firt_key: get_first_key,
-	get_first_key: get_first_key_secure,
-	find_all_by_field_value: find_all_by_field_value,
-	remove_by_value: remove_by_value,
-	find_by_field_value: find_by_field_value,
-	remove_by_field_value: remove_by_field_value,
-	remove_all_by_field_value: remove_all_by_field_value,
-	dictionary_to_array: dictionary_to_array,
-	create_url: create_url,
-	copy_object: copy_object,
-	create_clone_object: create_clone_object,
-	clone_fields: clone_fields,
-};
 
-/*
-var self;
-if (typeof window === 'object') {
-	self = window;
-} else if (typeof global == 'object') {
-	self = global;
+function every_property(obj, callback) 
+{
+    if (!callback) {
+        console.log("callback given every_property is undefined or null!")
+        return;
+    }
+    for(var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            callback(key);
+        }
+    }
 }
- 
-if (self) {
-	copy_object(self, my_utils);
+
+function every_index(arr, callback) 
+{
+    if (!callback) {
+        return;
+    }
+    for(var i = 0; i < arr.length; i++) {
+        callback(i);
+    }
 }
-*/
+
+//every_property({"first":1, "two": 2}, function (key) {console.log(key);});
+//every_index([0,1], function (index) {console.log(index);});

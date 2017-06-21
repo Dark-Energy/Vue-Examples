@@ -61,6 +61,18 @@ function find_by_field_value(arr, field, value)
 }
 
 
+function find_index_by_field_value(arr, field, value)
+{
+	for(var i = 0; i < arr.length; i++)	{
+		var tg = arr[i][field];
+		if (value === tg){
+			return i;
+		}
+	}
+	return -1;
+}
+
+
 function remove_by_field_value(arr, field, value)
 {
 	for(var i = 0; i < arr.length; i++)	{
@@ -164,3 +176,29 @@ function clone_fields(src, fields)
 	return obj;
 }
 
+
+function every_property(obj, callback) 
+{
+    if (!callback) {
+        console.log("callback given every_property is undefined or null!")
+        return;
+    }
+    for(var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            callback(key);
+        }
+    }
+}
+
+function every_index(arr, callback) 
+{
+    if (!callback) {
+        return;
+    }
+    for(var i = 0; i < arr.length; i++) {
+        callback(i);
+    }
+}
+
+//every_property({"first":1, "two": 2}, function (key) {console.log(key);});
+//every_index([0,1], function (index) {console.log(index);});

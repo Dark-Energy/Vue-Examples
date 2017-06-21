@@ -77,14 +77,16 @@ export function create_vue_app(application)
 					this.page_content_view = this.main_page_view;
 				}
 			},
-			"show_update_form": function (item, category, callback) 
+			"show_update_form": function (item, category, callback, cancel) 
 			{
+            
 				this.show_category(category);
 				this.page_content_view = "form-update";
 				this.page_content = {
 					item: item,
 					callback: callback,
-					tags: this.tags
+					tags: this.tags,
+                    cancel_callback: cancel,
 				};
 			},
 			"check_error": function () 

@@ -118,25 +118,43 @@ Vue_Application.prototype.add_record_to_category = function (category)
 			self.dynalinks.add_link_to_category(item, category);
 			var tag = item.tag;
 			mr.navigate(self.dynalinks.create_url(category, tag), true);
-	});
+	},
+    function () {
+        mr.navigate(self.dynalinks.create_url(category), true);
+    }
+    );
 }
 
 Vue_Application.prototype.update_record = function (category, id)
 {
 	var self = this;
-	var cat = self.dynalinks.categories[category];
-	if (!cat) {
+	var context = self.dynalinks.categories[category];
+	if (!context) {
 		console.log("Error update record!");
 		return;
 	}
-	var record = cat.hash[id];
+	var record = context.hash[id];
 	if (!record) {
 		console.log("Error update record!");
 		return;
 	}
-	self.vue.show_update_form(record, category, function (value ) {
+    //fucking 2 way data bindings
+    //we need create copy of record that is given to user for editing
+    //if user approve editing, then we need update record in database
+    //if user reject editing, then we do nothing
+    var tag = record.tag;
+    var old_favorite = record.favorite;
+    var item = create_clone_object(record);    
+	self.vue.show_update_form(item, category, function (value ) {
+        //context.check_favorite(record, old_favorite);
+        self.dynalinks.update_item(record, item);
 		mr.navigate(self.dynalinks.create_url(category, value.tag), true);			
-	});
+	}, 
+    //cancel
+    function () {			
+        mr.navigate(self.dynalinks.create_url(category, tag), true);
+    }
+    );
 }
 
 Vue_Application.prototype.init_router = function ()
@@ -168,4 +186,28 @@ Vue_Application.prototype.init_router = function ()
 
 
 
-var app = new Vue_Application(my_links);
+//var app = new Vue_Application(my_links);
+
+
+function find_database()
+{
+	var container;
+	if (typeof window === 'object') {
+		container = window;
+	} else if  (typeof global === 'object') {
+		container = global;
+	}
+	
+	if (container && container['my_links']) {
+		return container['my_links'];
+	}
+	
+	console.log('Error! database is undefined! Created empty database!');
+	var my_links = {
+		database: {},
+		names: {}
+	};
+	return my_links;
+}
+
+var app = new Vue_Application(find_database());

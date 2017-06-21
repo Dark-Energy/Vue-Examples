@@ -1,7 +1,11 @@
 ﻿{
 	"author"	: "author",
-	"name"		: "Dynalinks Vue Application",
+	"name"		: "Dynalinks-Vue",
 	"version"	: "0.0.1",
+    
+    "scripts": {
+        "build" : "grunt"
+    },
 
 	"devDependencies" : {
 		"grunt"					: ">= 0.4",
