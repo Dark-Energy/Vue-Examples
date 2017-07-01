@@ -2,15 +2,7 @@ var my_links = {
  "database": {
   "job": [
    {
-    "href": "https://www.fl.ru/projects/",
-    "text": "fl.ru",
-    "tag": "Работа",
-    "favorite_text": "fl.ru",
-    "_id": "aa106b7t81471073372658",
-    "favorite": true
-   },
-   {
-    "href": "https://github.com/Dark-Energy/tests",
+    "href": "https://github.com/Dark-Energy",
     "text": "my github",
     "tag": "Работа",
     "favorite_text": "my github",
@@ -90,18 +82,6 @@ var my_links = {
     "_id": "8nhgnkm9s1471073372659"
    },
    {
-    "href": "http://nodeschool.io/ru/#workshoppers",
-    "text": "Школа Nodejs",
-    "tag": "Инструменты",
-    "_id": "uukofwc9s1471073372659"
-   },
-   {
-    "href": "http://gruntjs.com/getting-started",
-    "text": "Grunt - управление сборкой для JavaScript",
-    "tag": "Инструменты",
-    "_id": "luycvkcck1471073372659"
-   },
-   {
     "href": "http://docs.python-requests.org/en/latest/user/quickstart/#make-a-request",
     "text": "Python requests library - quick start",
     "tag": "Python",
@@ -162,96 +142,6 @@ var my_links = {
     "_id": "qauq7epgm1471073372659"
    },
    {
-    "href": "http://htmlbook.ru/css",
-    "text": "Справочник по html и css",
-    "tag": "javascript",
-    "_id": "e74jsbecu1471073372659"
-   },
-   {
-    "href": "http://javascript.ru/",
-    "text": "JavaScript на русском",
-    "tag": "javascript",
-    "_id": "yqws0dz441471073372659"
-   },
-   {
-    "href": "http://learn.javascript.ru/",
-    "text": "Современный учебник по javascript",
-    "tag": "javascript",
-    "_id": "8hkguk90a1471073372659"
-   },
-   {
-    "href": "http://dmitrysoshnikov.com/tag/russian/",
-    "text": "Дмитрий Сошников - тонкости javascript",
-    "tag": "javascript",
-    "_id": "m6a1qmuvm1471073372659"
-   },
-   {
-    "href": "http://jsfiddle.net",
-    "text": "js fiddle - редактор online",
-    "tag": "javascript",
-    "_id": "g61xcz47y1471073372659"
-   },
-   {
-    "href": "http://requirejs.org/",
-    "text": "Require (модули)",
-    "tag": "Javascript Frameworks",
-    "_id": "4rupgco5e1471073372659"
-   },
-   {
-    "href": "http://knockoutjs.com/",
-    "text": "knockout",
-    "tag": "Javascript Frameworks",
-    "_id": "ehx6twh0e1471073372659"
-   },
-   {
-    "href": "http://jquery.page2page.ru/index.php5/Заглавная_страница",
-    "text": "Вики по jQuery на русском",
-    "tag": "Javascript Frameworks",
-    "_id": "21sz58q7d1471073372659"
-   },
-   {
-    "href": "http://jqueryui.com/",
-    "text": "jquery ui",
-    "tag": "Javascript Frameworks",
-    "_id": "rvrxfyo871471073372659"
-   },
-   {
-    "href": "http://handlebarsjs.com/",
-    "text": "Handlebars",
-    "tag": "Javascript Frameworks",
-    "_id": "wbxx9v2pm1471073372659"
-   },
-   {
-    "href": "http://underscorejs.org/",
-    "text": "underscore",
-    "tag": "Javascript Frameworks",
-    "_id": "gvboe2b1e1471073372659"
-   },
-   {
-    "href": "http://backbonejs.org/",
-    "text": "Backbone",
-    "tag": "Javascript Frameworks",
-    "_id": "3ldnihfp61471073372659"
-   },
-   {
-    "href": "http://metanit.com/web/angular/index.php",
-    "text": "AngularJS",
-    "tag": "Javascript Frameworks",
-    "_id": "dtkj83w2l1471073372659"
-   },
-   {
-    "href": "http://tutorials.jenkov.com/angularjs/custom-directives.html",
-    "text": "custom directives in angular",
-    "tag": "Javascript Frameworks",
-    "_id": "bca4umpu41471073372659"
-   },
-   {
-    "href": "http://www.ng-newsletter.com/",
-    "text": "angular news",
-    "tag": "Javascript Frameworks",
-    "_id": "qtf642xcl1471073372659"
-   },
-   {
     "href": "https://github.com/DerelictOrg",
     "text": "Графические библиотеки для D на github",
     "tag": "D, Rust and so like",
@@ -306,30 +196,10 @@ var my_links = {
     "_id": "1om51zydy1471073372659"
    },
    {
-    "href": "https://esdiscuss.org/",
-    "text": "ECMAScript Discussion Archives",
-    "tag": "javascript",
-    "_id": "g0m1nthip1471073372659"
-   },
-   {
     "href": "https://en.wikipedia.org/wiki/DeepDream",
     "text": "Google DeepDream Wikipedia",
     "tag": "Нейросети",
     "_id": "69s06410l1471073372659"
-   },
-   {
-    "href": "http://www.2ality.com/",
-    "text": "2ality - javascript and more",
-    "tag": "javascript",
-    "_id": "s4270ndoy1471073372659"
-   },
-   {
-    "href": "https://developer.mozilla.org/en-US/Add-ons",
-    "text": "Mozilla",
-    "tag": "javascript",
-    "favorite": true,
-    "_id": "3g2rdqcps1471073372659",
-    "favorite_text": "Mozilla"
    },
    {
     "href": "https://www.djangopackages.com/",
@@ -362,22 +232,10 @@ var my_links = {
     "_id": "onjnnkoyf1471073372659"
    },
    {
-    "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions",
-    "text": "reg exp",
-    "tag": "javascript",
-    "_id": "rh4u4orqy1471073372659"
-   },
-   {
     "href": "https://twistedmatrix.com/trac/",
     "text": "Twisted",
     "tag": "Python",
     "_id": "j3rjdudpy1471073372659"
-   },
-   {
-    "href": "https://nodejs.org/en/",
-    "text": "Node.js",
-    "tag": "javascript",
-    "_id": "7ygw28di41471073372659"
    },
    {
     "href": "https://openai.com/blog/generative-models/",
@@ -420,194 +278,6 @@ var my_links = {
     "favorite_text": "",
     "tag": "Нейросети",
     "_id": "vrp1w3zp71471090108815"
-   }
-  ],
-  "rutracker": [
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=2038",
-    "text": "Худло",
-    "tag": " Книги ",
-    "_id": "c5mmiie6y1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1895",
-    "text": "Ambient Dub, psy chill",
-    "tag": "Электроника",
-    "_id": "r2cfeaqzu1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1865",
-    "text": "Эмбиент мп3",
-    "tag": "Электроника",
-    "_id": "ttp1khy7z1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1745",
-    "text": "Industrial & Post-industrial (lossy)",
-    "tag": "Электроника",
-    "_id": "3vszgfzqa1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1878",
-    "text": "industrial, noise",
-    "tag": "Электроника",
-    "_id": "hq02xxcok1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1705",
-    "text": "Прог-рок и арт-рок",
-    "tag": " Рок ",
-    "_id": "w5opybfd21471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1711",
-    "text": "инструментальный рок",
-    "tag": " Рок ",
-    "_id": "k956541t41471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1713",
-    "text": "Rockabilly, Psychobilly, Rock'n'Roll (lossy)",
-    "tag": " Рок ",
-    "_id": "a58eq4ok01471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1816",
-    "text": "Sludge, Stoner, Post-Metal (lossy)",
-    "tag": " Рок ",
-    "_id": "vlrgaa0hr1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1703",
-    "text": "Classic Rock & Hard Rock (lossy)",
-    "tag": " Рок ",
-    "_id": "bxzlemyfl1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1743",
-    "text": "Инди",
-    "tag": " Рок ",
-    "_id": "dm7ml32ke1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1725",
-    "text": "gothic metal",
-    "tag": "митол",
-    "_id": "ng6p1rd1t1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1727",
-    "text": "Heavy, Power, Progressive (lossy)",
-    "tag": "митол",
-    "_id": "2jq77u1dc1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=798",
-    "text": "Folk, Pagan, Viking (lossy)",
-    "tag": "митол",
-    "_id": "v9swb6ul21471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1132",
-    "text": "Западноевропейский фолк (lossy)",
-    "tag": "Фолк",
-    "_id": "3zei6wqme1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1707",
-    "text": "фолк-рок",
-    "tag": "Фолк",
-    "_id": "s166b02te1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1867",
-    "text": "Modern Classical, Electroacoustic (lossy)",
-    "tag": "Академия",
-    "_id": "a5ntx7nnc1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=2310",
-    "text": "Окрестровая музыка",
-    "tag": "Академия",
-    "_id": "37vxfn4581471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=409",
-    "text": "Классическая и современная академическая музыка",
-    "tag": "Академия",
-    "_id": "xx3em71q61471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1749",
-    "text": "Gothic Rock & Dark Folk (lossy)",
-    "tag": "Готика",
-    "_id": "rinfhzs971471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=406",
-    "text": "Darkwave, Neoclassical, Ethereal, Dungeon Synth (lossy)",
-    "tag": "Готика",
-    "_id": "8mfior8k61471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=1946",
-    "text": "Nu Jazz, Acid Jazz, Future Jazz (lossy)",
-    "tag": "Джаз",
-    "_id": "s7ciz30ou1471073372661"
-   },
-   {
-    "href": "http://rutracker.org/forum/viewforum.php?f=2267",
-    "text": "Зарубежный джаз",
-    "tag": "Джаз",
-    "_id": "2vbbdat9f1471073372661"
-   },
-   {
-    "href": "https://rutracker.org/forum/viewforum.php?f=2434",
-    "text": "древний мир, античность",
-    "tag": " Книги ",
-    "favorite": false,
-    "favorite_text": "",
-    "_id": "84l3g2n5k1471073372661"
-   },
-   {
-    "href": "https://rutracker.org/forum/viewforum.php?f=2435",
-    "text": "история россии",
-    "tag": " Книги ",
-    "favorite": false,
-    "favorite_text": "",
-    "_id": "s600s5l5h1471073372661"
-   },
-   {
-    "href": "https://rutracker.org/forum/viewforum.php?f=1826",
-    "text": "техно мп3",
-    "tag": "Электроника",
-    "favorite": false,
-    "favorite_text": "",
-    "_id": "wyj1k6v1z1471073372661"
-   },
-   {
-    "href": "https://rutracker.org/forum/viewforum.php?f=1862",
-    "text": "chillout, lounge, downtempo mp3",
-    "tag": "Электроника",
-    "favorite": false,
-    "favorite_text": "",
-    "_id": "2qlqfgoox1471073372661"
-   },
-   {
-    "href": "https://rutracker.org/forum/viewforum.php?f=1648",
-    "text": "labels packs",
-    "tag": "Электроника",
-    "favorite": false,
-    "favorite_text": "",
-    "_id": "14apuplx91471073372661"
-   },
-   {
-    "href": "https://rutracker.org/forum/viewforum.php?f=1881",
-    "text": "синти-поп, new wave",
-    "tag": " Рок ",
-    "favorite": false,
-    "favorite_text": "",
-    "_id": "gz05d8rwb1471073372661"
    }
   ],
   "English": [
@@ -853,12 +523,312 @@ var my_links = {
     "favorite_text": "",
     "_id": "3dny0mldi1471073372661"
    }
+  ],
+  "javascript": [
+   {
+    "href": "http://htmlbook.ru/css",
+    "text": "Справочник по html и css",
+    "tag": "javascript",
+    "_id": "e74jsbecu1471073372659"
+   },
+   {
+    "href": "http://javascript.ru/",
+    "text": "JavaScript на русском",
+    "tag": "javascript",
+    "_id": "yqws0dz441471073372659"
+   },
+   {
+    "href": "http://learn.javascript.ru/",
+    "text": "Современный учебник по javascript",
+    "tag": "javascript",
+    "_id": "8hkguk90a1471073372659"
+   },
+   {
+    "href": "http://dmitrysoshnikov.com/tag/russian/",
+    "text": "Дмитрий Сошников - тонкости javascript",
+    "tag": "javascript",
+    "_id": "m6a1qmuvm1471073372659"
+   },
+   {
+    "href": "http://jsfiddle.net",
+    "text": "js fiddle - редактор online",
+    "tag": "javascript",
+    "_id": "g61xcz47y1471073372659"
+   },
+   {
+    "href": "https://esdiscuss.org/",
+    "text": "ECMAScript Discussion Archives",
+    "tag": "javascript",
+    "_id": "g0m1nthip1471073372659"
+   },
+   {
+    "href": "http://www.2ality.com/",
+    "text": "2ality - javascript and more",
+    "tag": "javascript",
+    "_id": "s4270ndoy1471073372659"
+   },
+   {
+    "href": "https://developer.mozilla.org/en-US/Add-ons",
+    "text": "Mozilla",
+    "tag": "javascript",
+    "favorite": true,
+    "_id": "3g2rdqcps1471073372659",
+    "favorite_text": "Mozilla"
+   },
+   {
+    "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions",
+    "text": "reg exp",
+    "tag": "javascript",
+    "_id": "rh4u4orqy1471073372659"
+   },
+   {
+    "href": "https://nodejs.org/en/",
+    "text": "Node.js",
+    "tag": "node",
+    "_id": "7ygw28di41471073372659",
+    "favorite": false
+   },
+   {
+    "href": "https://nodejs.org/api/index.html",
+    "text": "nodejs api",
+    "favorite": false,
+    "favorite_text": "",
+    "tag": "node",
+    "_id": "3tdh0qvn31484989650918"
+   },
+   {
+    "href": "http://requirejs.org/",
+    "text": "Require (модули)",
+    "tag": "Javascript Frameworks",
+    "_id": "4rupgco5e1471073372659"
+   },
+   {
+    "href": "http://knockoutjs.com/",
+    "text": "knockout",
+    "tag": "Javascript Frameworks",
+    "_id": "ehx6twh0e1471073372659"
+   },
+   {
+    "href": "http://handlebarsjs.com/",
+    "text": "Handlebars",
+    "tag": "Javascript Frameworks",
+    "_id": "wbxx9v2pm1471073372659"
+   },
+   {
+    "href": "http://underscorejs.org/",
+    "text": "underscore",
+    "tag": "Javascript Frameworks",
+    "_id": "gvboe2b1e1471073372659"
+   },
+   {
+    "href": "http://backbonejs.org/",
+    "text": "Backbone",
+    "tag": "Javascript Frameworks",
+    "_id": "3ldnihfp61471073372659"
+   },
+   {
+    "href": "http://tutorials.jenkov.com/angularjs/custom-directives.html",
+    "text": "custom directives in angular",
+    "tag": "angular",
+    "_id": "bca4umpu41471073372659",
+    "favorite": false
+   },
+   {
+    "href": "http://www.ng-newsletter.com/",
+    "text": "angular news",
+    "tag": "angular",
+    "_id": "qtf642xcl1471073372659",
+    "favorite": false
+   },
+   {
+    "href": "https://github.com/AngularClass/angular2-webpack-starter",
+    "text": "Angular2 webpack-starter",
+    "favorite": false,
+    "favorite_text": "",
+    "tag": "angular",
+    "_id": "1e6nqm2l51473268375425"
+   },
+   {
+    "href": "https://angularjs.org/",
+    "text": "AngularJS",
+    "favorite": false,
+    "favorite_text": "",
+    "tag": "angular",
+    "_id": "dqdnin77v1473800559669"
+   },
+   {
+    "href": "https://angular.io/docs/js/latest/quickstart.html",
+    "text": "angular 2 quickstart",
+    "favorite": false,
+    "favorite_text": "",
+    "tag": "angular",
+    "_id": "a1dtk625u1475066958493"
+   },
+   {
+    "href": "http://loopback.io/getting-started/",
+    "text": "loopback",
+    "favorite": false,
+    "favorite_text": "",
+    "tag": "backend",
+    "_id": "5emyfxcc41479056386891"
+   },
+   {
+    "href": "https://webpack.js.org/guides/author-libraries/",
+    "text": "webpack",
+    "tag": "node",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "9dqdb2c771497376863477"
+   },
+   {
+    "href": "https://vuejs.org/v2/guide/",
+    "text": "vue js",
+    "tag": "Vue",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "iucrj722v1497830298035"
+   },
+   {
+    "href": "https://github.com/rollup/rollup",
+    "text": "rollup",
+    "tag": "node",
+    "favorite": false,
+    "favorite_text": "rollup",
+    "_id": "lwmnmwyhd1498365666385"
+   },
+   {
+    "href": "http://peerjs.com/docs/#start",
+    "text": "PeerJs",
+    "tag": "Javascript Frameworks",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "z7tz3y0ad1498365736419"
+   },
+   {
+    "href": "https://facebook.github.io/react-native/docs/getting-started.html",
+    "text": "react native",
+    "tag": "react",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "hrdd5wqnf1498365824216"
+   },
+   {
+    "href": "https://socket.io/get-started/chat/",
+    "text": "socket.io chat",
+    "tag": "backend",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "yd5320qv41498365885149"
+   },
+   {
+    "href": "https://vue-loader.vuejs.org/en/configurations/extract-css.html",
+    "text": "Vue loader",
+    "tag": "Vue",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "llg43969z1498707024628"
+   },
+   {
+    "href": "http://gruntjs.com/getting-started",
+    "text": "Grunt - управление сборкой для JavaScript",
+    "tag": "node",
+    "_id": "luycvkcck1471073372659",
+    "favorite": false
+   },
+   {
+    "href": "http://kripken.github.io/emscripten-site/docs/getting_started/Tutorial.html",
+    "text": "emscripten tutorial",
+    "tag": "Web Assembly",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "7gyodt8891498707934533"
+   },
+   {
+    "href": "http://kripken.github.io/emscripten-site/docs/api_reference/module.html#module",
+    "text": "module object",
+    "tag": "Web Assembly",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "swxjxq8121498707954599"
+   },
+   {
+    "href": "https://developer.mozilla.org/en-US/docs/WebAssembly/Concepts#Porting_from_CC",
+    "text": "mozilla web assembly concepts",
+    "tag": "Web Assembly",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "g164kiki31498707987897"
+   },
+   {
+    "href": "https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format#WebAssembly_Memory",
+    "text": "mozilla text format",
+    "tag": "Web Assembly",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "0i4ujysuq1498708009227"
+   },
+   {
+    "href": "https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API",
+    "text": "mozilla using webassembly javascript api",
+    "tag": "Web Assembly",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "10hz14eoo1498708051740"
+   },
+   {
+    "href": "https://kripken.github.io/emscripten-site/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html#interacting-with-code-ccall-cwrap",
+    "text": "emscripten - interacting with code",
+    "tag": "Web Assembly",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "s3p1ovwbu1498708107868"
+   },
+   {
+    "href": "https://facebook.github.io/react/docs/hello-world.html",
+    "text": "react",
+    "tag": "react",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "n0ozyaa5w1498710538324"
+   },
+   {
+    "href": "http://restify.com",
+    "text": "restify",
+    "tag": "backend",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "6b335d7dt1498777502321"
+   },
+   {
+    "href": "http://sailsjs.com/documentation/anatomy/api/models",
+    "text": "sails js",
+    "tag": "backend",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "coee7d5a31498777563707"
+   },
+   {
+    "href": "http://expressjs.com",
+    "text": "express",
+    "tag": "backend",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "4rj23b6061498777611224"
+   },
+   {
+    "href": "https://router.vuejs.org/en/",
+    "text": "vue router",
+    "tag": "Vue",
+    "favorite": false,
+    "favorite_text": "",
+    "_id": "wamwyh0ts1498808877509"
+   }
   ]
  },
  "names": {
   "job": "Работа",
-  "rutracker": "Рутрекер",
-  "English": "English"
+  "English": "English",
+  "javascript": "javascript"
  },
  "features": {
   "job": [

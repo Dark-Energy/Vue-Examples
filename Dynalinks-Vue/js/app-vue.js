@@ -205,7 +205,7 @@ Vue.component('form-update', {
 		},
         is_favorite: function () 
         {
-            //console.log("comp", !!this.page_content.item.favorite);
+            this.page_content.item.favorite = !!this.page_content.item.favorite;
             return !!this.page_content.item.favorite;
         },
         change_favorite: function () 
@@ -213,14 +213,17 @@ Vue.component('form-update', {
             this.my_features = this.page_content.item.favorite = !!!this.page_content.item.favorite;        
             if (this.my_features && !this.page_content.item.favorite_text) {
                 this.page_content.item.favorite_text = this.page_content.item.text;
+            } else if (!this.my_features) {
+                this.page_content.item.favorite_text = '';
             }
         }
 	},
 
     activated: function () {
         this.my_features = this.is_favorite();
+        this.new_tag = undefined;
     },
-    
+
 	data: function () {
 		var data = {};
 		data.message = '';
