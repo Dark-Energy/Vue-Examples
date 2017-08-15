@@ -19,7 +19,9 @@ var main_menu_template = '<div class="top-line top-buttons line-menu">\
 		</ul>\
 	</li>\
 	<!--li><a href="javascript:void(0);" id="button-edit-page" v-on:click="edit_mode">Правка</a></li-->\
-	<li><a href="javascript:void(0);" id="button-save" v-on:click="save_all"> Сохранить всё</a></li>\
+	<li><a href="javascript:void(0);" id="button-save" v-on:click="save_to_ls"> Сохранить локально</a></li>\
+	<li><a href="javascript:void(0);" id="button-save" v-on:click="save_all"> Сохранить в файл</a></li>\
+	<li><a href="javascript:void(0);" id="button-save" v-on:click="clear_ls"> Очистить хранилище</a></li>\
 	<li><input type="text" id="search-box" v-model="search_text" placeholder="искать..."><button type="button" id="search-button" v-on:click="search_record">искать</button></li>\
 	</ul>\
 </div>';
@@ -32,6 +34,14 @@ var Application_Main_Menu = {
 	},
 	template: main_menu_template,
 	methods: {
+        clear_ls: function () 
+        {
+            application.clear_ls();
+        },
+        save_to_ls: function ()
+        {
+            application.save_to_ls();
+        },
 		save_all: function () 
 		{
 			application.save_to_file();

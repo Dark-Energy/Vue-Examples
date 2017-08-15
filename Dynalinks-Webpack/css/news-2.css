@@ -161,13 +161,12 @@ div.header
 	max-width: 800px;
 }
 
-.tab-content a,
-.tab-content a:visited
+.data-grid a,
+.data-grid a:visited
 {
 	display: inline-block;
 	padding: 5px 15px;
 	margin: 5px 5px;
-	/*outline: 1px solid #000000;	*/
 	color: black;
 	width: 220px;
 	font-family: Verdana, Georgia, serif;
@@ -177,7 +176,7 @@ div.header
 	text-decoration: none;
 }
 
-.tab-content a:hover
+.data-grid a:hover
 {
 	background-color: rgb(245, 245, 245);
 	color: #CC0000;
@@ -194,13 +193,13 @@ div.header
 	/*width: 220px;*/
 }
 
-.editable-link .edit-btn
+.editable-link   .edit-btn
 {
 	position: absolute;
 	left: 0px;
 }
 
-.editable-link .delete-btn
+.editable-link  .delete-btn
 {
 	position: absolute;
 	right: 0px;
@@ -303,39 +302,15 @@ top buttons
 }
 
 
-
-
-@media (max-width: 767px) {
-	.line-menu li 
-	{
-		float: none;
-	}
-	.line-menu li ul
-	{
-		position: relative;
-		transform: scale(0);
-	}
-	.line-menu li:hover ul
-	{
-		transform: scale(1);
-		*animation: 0.5s ease-in-out 0s normal none 1 zoomIn;		
-	}
-}
-
 /*
 end top-button
 */
 .top-line a
 {
-	/*
-	display: block;
-	float: left;
-	*/
 	display: inline-block;
 	margin: 5px; 
 	padding: 5px;
 }
-
 
 
 .search-result a,
@@ -429,4 +404,44 @@ end top-button
 {
 	text-decoration: none;	
 	color: #00AA00;
+}
+
+.control-panel a.link-button 
+{
+    display:inline-block;
+    text-decoration: none;
+    padding: 5px 10px;
+    color: #000000;
+    /*outline: 1px solid #f500f5;*/
+    text-align: center;
+    font-size: 14px;    
+}
+
+.control-panel a.link-button:hover 
+{
+    color: #FF00FF;
+    text-decoration: underline;    
+}
+
+.control-panel
+{
+    /*outline: 10px solid #0000ff;*/
+     text-align: right;
+
+}
+
+
+.submenu a
+{
+    display: block;
+    min-width: 200px;
+    animation: none !important;
+    background: #FFFFFF;
+    
+}
+
+.submenu a:hover
+{
+    background-color: #FcFc00;
+    color: #000099;
 }

@@ -218,7 +218,22 @@ Vue.component('form-update', {
             }
         }
 	},
-
+    /*
+    computed: {
+        record: function () {
+            //console.log(this.page_content.item.text);
+            return this.page_content.item;
+        }
+    },
+    watch: {
+        record: function (value) {
+            console.log("watch", value.text);
+        }
+    },
+    mounted: function () {
+        console.log("first time",this.page_content.item.text);
+    },
+    */
     activated: function () {
         this.my_features = this.is_favorite();
         this.new_tag = undefined;
@@ -242,12 +257,14 @@ Vue.component('form-update', {
 	<p> Выберите тег <select class="select-tag" v-model="page_content.item.tag"> <option v-for="tag in page_content.tags" v-bind:value="tag"> {{tag}} </otion> </select>\
 	или создайте новый <input type="text" v-model="new_tag">\
 	</div>\
+    <div class="button-panel">\
+	<button class="save-button" type="button" v-on:click="save" id="update-form-save-button">Save</button>\
+	<button class="cancel-button" type="button" v-on:click="cancel">Отмена</button>\
+    </div>\
 	<div class="other-fields fields">\
 	<p>Избранное <button type="button" v-on:click="change_favorite">{{is_favorite()?"Remove":"Add"}}</button>\
 	Текст для избранного <input v-model="page_content.item.favorite_text" v-bind:disabled="!my_features">\
 	</div>\
-	<button class="save-button" type="button" v-on:click="save" id="update-form-save-button">Save</button>\
-	<button class="cancel-button" type="button" v-on:click="cancel">Отмена</button>\
 	</div>',
 	});
 

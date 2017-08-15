@@ -47,6 +47,11 @@ Dynalinks.Utils.create_features_first = function (dynalinks)
 names = dictionary of {hash: name}
 categories = dictionary of {hash: Context}
 category_list = array of {href: hash, text: name}
+context = name;
+current_page = array of record
+current_category = category hash
+current_page = this.context.pages[name]
+
 */
 function Dynalinks(data, lazy_parse)
 {
@@ -515,6 +520,17 @@ Dynalinks.prototype.save_to_file = function (filename, varname)
 	this.save_data_to_file(filename || this.Database_Name, db, this.Database_Var);
 }
 
+Dynalinks.prototype.toJSON = function ()
+{
+	var data = {
+        'database': this.database, 
+        'names': this.names,
+        'features': this.features,
+    };
+	var text = JSON.stringify(data, null, " ");    
+    return text;
+}
+
 Dynalinks.prototype.get_from_active_context = function(_id)
 {
 	return find_by_field_value(this.database[this.context.category_name], '_id', _id);
@@ -577,15 +593,23 @@ Dynalinks.prototype.export_tag = function (category, tag)
 Dynalinks.prototype.remove_category = function (name)
 {
 	if (this.database[name]) {
+        this.database[name] = undefined;
 		delete this.database[name];
 	}
 	if (this.categories[name]) {
+        this.categories[name] = undefined;
 		delete this.categories[name];
 	}
 	if (this.names[name]) {
+        this.names[name] = undefined;
 		delete this.names[name];
 	}
 	remove_by_field_value(this.category_list, 'href', name);
+    this.context = undefined;
+    this.current_page = [];
+    this.current_category = '';
+    
+    //console.log("Remove ", JSON.stringify(this, null, ' '));
 }
 
 /*

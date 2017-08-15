@@ -1,12 +1,22 @@
-!(function () {
-	if (typeof my_links === 'undefined') {
-		var my_links = {
-		database: {},
-		names: {}
+var my_links;
+var old_my_linksl
+function initialize()
+{
+    if (typeof my_links === 'undefined') {
+		my_links = {
+            database: {},
+            names: {}
 		};
-	}
-})();
+    } 
+    if (localStorage["Dynalinks"]) {
+        old_my_links = my_links;
+        var text = localStorage["Dynalinks"];
+        my_links = JSON.parse(text);
+        //console.log("shit", localStorage["Dynalinks"]);
+   }
+}
 
+initialize();
 
 function Vue_Application(data)
 {
@@ -38,6 +48,18 @@ Vue_Application.prototype.initialize = function ()
 	});
 }
 
+Vue_Application.prototype.clear_ls = function ()
+{
+    delete localStorage["Dynalinks"];
+}
+
+Vue_Application.prototype.save_to_ls = function ()
+{
+    var text = this.dynalinks.toJSON();
+    //console.log("save to ls", text);
+    localStorage.setItem("Dynalinks", text);
+}
+
 Vue_Application.prototype.add_item = function ()
 {
 	var context = this.dynalinks.get_active_context();
@@ -65,7 +87,6 @@ Vue_Application.prototype.show_category_page = 	function (category, page)
 		console.log("Error! Category " + category + " not found!");
 		this.vue.show_error("Error! Category " + category + " not found!");
 	} else {
-	
 		if (this.vue.current_category 
 		&& this.vue.current_category !== category) {
 			this.dynalinks.set_category(category);
@@ -172,7 +193,8 @@ Vue_Application.prototype.init_router = function ()
 		
 	mr.add_default( function (url) 
 		{
-			name = self.vue.category_list[0].href;
+            
+			name = self.vue.category_list[0] && self.vue.category_list[0].href;
 			this.show_category_page(name);
 		}, this);
 		

@@ -70,15 +70,26 @@
      
         is_favorite: function () 
         {
+            this.page_content.item.favorite = !!this.page_content.item.favorite;
             return !!this.page_content.item.favorite;
         },
+        
         change_favorite: function () 
         {
             this.my_features = this.page_content.item.favorite = !!!this.page_content.item.favorite;        
             if (this.my_features && !this.page_content.item.favorite_text) {
                 this.page_content.item.favorite_text = this.page_content.item.text;
+            } else if (!this.my_features) {
+                this.page_content.item.favorite_text = '';
             }
-        }
+        },
+        
+    activated: function () {
+        this.my_features = this.is_favorite();
+        this.new_tag = undefined;
+    },
+        
+        
         
 	},
 	
@@ -87,7 +98,6 @@
 		data.message = '';
 		data.new_tag = undefined;
         data.my_features = false;
-        
 		return data;
 	},
 	}

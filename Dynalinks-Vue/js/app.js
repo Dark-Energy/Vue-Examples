@@ -154,7 +154,8 @@ Application.prototype.remove_category = function ()
 	var self = this;
 	params.handler = function (value) {
 		self.dynalinks.remove_category(self.dynalinks.context.category_name);
-		mr.navigate(self.dynalinks.create_url(get_first_key(self.dynalinks.names)), true);
+        var key = get_first_key(self.dynalinks.names);
+		mr.navigate(self.dynalinks.create_url(key), true);
 	}
 	var form = new PopupForm(params);
 	form.show();
